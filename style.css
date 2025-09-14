@@ -1,0 +1,155 @@
+/* =============================
+	 Blog preview card styles
+	 Matches Frontend Mentor design
+	 Assets paths are relative to /assets
+================================ */
+
+/* Font: Figtree variable (local) */
+@font-face {
+	font-family: 'Figtree';
+	src: url('./assets/fonts/Figtree-VariableFont_wght.ttf') format('truetype');
+	font-weight: 100 900;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Figtree';
+	src: url('./assets/fonts/Figtree-Italic-VariableFont_wght.ttf') format('truetype');
+	font-weight: 100 900;
+	font-style: italic;
+	font-display: swap;
+}
+
+:root {
+	--yellow: hsl(47, 88%, 63%);
+	--white: hsl(0, 0%, 100%);
+	--gray-500: hsl(0, 0%, 42%);
+	--gray-950: hsl(0, 0%, 7%);
+
+	--radius-lg: 20px;
+	--radius-md: 12px;
+	--radius-sm: 8px;
+
+	--shadow-card: 8px 8px 0 0 #000; /* solid drop shadow per design */
+	--shadow-card-hover: 14px 14px 0 0 #000;
+}
+
+/* Base reset */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+	margin: 0;
+	font-family: 'Figtree', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+	background: var(--yellow);
+	color: var(--gray-950);
+	line-height: 1.5;
+}
+
+.site {
+	min-height: 100dvh;
+	display: grid;
+	place-items: center;
+	padding: 24px;
+}
+
+/* Card */
+.card {
+	background: var(--white);
+	border: 1px solid var(--gray-950);
+	border-radius: var(--radius-lg);
+	box-shadow: var(--shadow-card);
+	max-width: 384px; /* close to design */
+	width: 100%;
+	overflow: hidden; /* round top image corners */
+	transition: box-shadow 160ms ease, transform 160ms ease;
+}
+.card:hover {
+	box-shadow: var(--shadow-card-hover);
+	transform: translate(-2px, -2px);
+}
+.card:focus-within {
+	box-shadow: var(--shadow-card-hover);
+	transform: translate(-2px, -2px);
+}
+
+.card__media { margin: 0; }
+.card__media img {
+	display: block;
+	width: 100%;
+	height: auto;
+	border-top-left-radius: calc(var(--radius-lg) - 2px);
+	border-top-right-radius: calc(var(--radius-lg) - 2px);
+}
+
+.card__body {
+	padding: 24px;
+}
+
+.badge {
+	display: inline-block;
+	background: var(--yellow);
+	border: 1px solid var(--gray-950);
+	border-radius: var(--radius-sm);
+	font-weight: 800;
+	font-size: 0.875rem; /* 14px */
+	padding: 6px 12px;
+}
+
+.card__date {
+	display: block;
+	margin-top: 16px;
+	font-size: 0.875rem;
+}
+
+.card__title {
+	margin: 16px 0 12px;
+	font-size: 1.5rem; /* 24px */
+	line-height: 1.2;
+}
+.card__title a {
+	color: inherit;
+	text-decoration: none;
+	font-weight: 800;
+	display: inline-block;
+	border-radius: 6px;
+}
+.card__title a:hover,
+.card__title a:focus-visible {
+	color: var(--yellow);
+	box-shadow: 0 0 0 3px var(--gray-950), 0 0 0 6px var(--yellow);
+}
+
+.card__excerpt {
+	color: var(--gray-500);
+	margin: 0 0 24px;
+}
+
+.card__author {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+.card__author img {
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	border: 1px solid var(--gray-950);
+}
+.card__author-name {
+	font-weight: 800;
+	font-size: 0.9375rem; /* 15px */
+}
+
+/* Footer (challenge attribution) */
+.attribution {
+	text-align: center;
+	font-size: 11px;
+	padding: 24px;
+}
+.attribution a { color: #1f2f56; }
+
+/* Responsive fine-tuning */
+@media (max-width: 420px) {
+	.card__body { padding: 20px; }
+	.card__title { font-size: 1.25rem; }
+}
